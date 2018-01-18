@@ -1,0 +1,68 @@
+.call-button {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 9999;
+  display: block;
+  @media only all and (min-device-width: 768px) {
+      display: none;
+  }
+  .call-button-main {
+    position: relative;
+    a.signals {
+      text-decoration: none;
+      .call-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+        color: #fff;
+        background-color: #29AD49;
+        border-radius: 50px;
+        border: 6px solid rgba(255, 255, 255, .3);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .signal {
+        display: block;
+        position: absolute;
+        left: 50%;
+        opacity: 0;
+        border-radius: 50%;
+        box-shadow: 0 0 80px rgba(116, 187, 220, 0.5);
+        &.s1, &.s2 {
+          border: 2px solid #29AD49;
+          box-shadow: 0 0 80px rgba(41, 173, 73, .3);
+        }
+        &.s1 {
+          border-color: rgba(41, 173, 73, .3);
+          width: 60px;
+          height: 60px;
+          margin-top: -56px;
+          margin-left: -30px;
+          box-sizing: border-box;
+          animation: signal-small .8s infinite alternate ease-in-out;
+        }
+        &.s2 {
+          border-color: rgba(41, 173, 73, .6);
+          box-sizing: border-box;
+          animation: signal-big 1.2s infinite ease-in-out;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
+@keyframes signal-small {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes signal-big {
+  0% {opacity: 0; width: 60px; height: 60px; margin-top: -56px; margin-left: -30px;}
+  25% {opacity: .5; width: 70px; height: 70px; margin-top: -61px; margin-left: -35px;}
+  50% {opacity: 1; width: 80px; height: 80px; margin-top: -66px; margin-left: -40px;}
+  100% {opacity: 0; width: 100px; height: 100px; margin-top: -76px; margin-left: -50px;}
+}
